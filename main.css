@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body{
+    line-height: 1.5;
+    background: url('bg1.jfif')no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 10px;
+}
+
+#background{
+    background: url('mainbg.jpg')no-repeat;
+    overflow: hidden;
+    background-position:center;
+    background-size: cover;
+    animation: animateBg 20s linear infinite;
+    border-radius: 10px;
+}
+
+@keyframes animateBg {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+} 
+
+h1{
+    position: relative;
+    font-size: 4em;
+    font-weight: 900;
+    text-align: center;
+    margin: 40px 0 60px 0;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+h1::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 8px;
+    width: 0;
+    background: linear-gradient(90deg,#ff1b69,#ff0,#2196f3,#9c27b0,#ff1b69);
+    animation: animateline 0.5s linear infinite;
+    border-radius: 80px;
+    transition: width 0.5s ease-in-out;
+}
+
+@keyframes animateline {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 30%;
+    }
+}
+
+h1:hover::before{
+    width: 34.5%;
+}
+
+h1 span{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
+    color: #0b0a0a;
+    font-weight: 600;
+}
+
+h1 span{
+    animation: animateword 3s linear infinite;
+}
+
+h1 span:nth-child(1){
+    animation-delay: 0s;
+}
+h1 span:nth-child(2){
+    animation-delay: 0.2s;
+}
+h1 span:nth-child(3){
+    animation-delay: 0.4s;
+}
+h1 span:nth-child(4){
+    animation-delay: 0.6s;
+}
+h1 span:nth-child(5){
+    animation-delay: 0.8s;
+}
+
+@keyframes animateword{
+    0%,80%{
+        color: #333;
+        text-shadow: none;
+    }
+    100%{
+        color: #fff;
+        text-shadow: 0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 40px #fff,
+            0 0 80px #fff,
+            0 0 120px #fff,
+            0 0 160px #fff;
+    }
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+#search-input{
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    color: grey;
+}
+
+#search-button{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+button:hover span{
+    letter-spacing: 2px;
+    box-shadow: 0 0 35px var(--clr);
+}
+
+
+#search-button button:hover{
+    letter-spacing: 20px;
+    background: var(--clr);
+}
+
+
+
+#show-more-button{
+    text-align: center;
+    display: block;
+    margin: 30px auto;
+    border-radius: 25px;
+    font-weight: 4em;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    border-color: darksalmon;
+    padding: 10px 20px;
+    background: darksalmon;
+    transition: all 0.5s ease;
+    display: none;
+}
+
+button:hover{
+    box-shadow: 0 0 5px darksalmon, 0 0 25px darksalmon,0 0 50px darksalmon, 0 0 100px darksalmon, 0 200px darksalmon;
+    letter-spacing: 3px;
+}
+
+button:active{
+    transition: scale(0.96);
+}
+
+#search-result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+#search-result img{
+    width: 95%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    background-size: auto;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#search-result img:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:760px) {
+    .search-img{
+        padding: 20px;
+    }
+    .search-more{
+        width: 45%;
+    }
+    #search-result{
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media screen and (max-width:480px) {
+    .search-more{
+        width: 100%;
+    }
+    #search-result{
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
